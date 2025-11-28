@@ -20,7 +20,7 @@ const CityForecast = () => {
   const fetchForecast = async () => {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${params.city}&units=metric&lang=it&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${params.city},it&units=metric&lang=it&appid=${API_KEY}`
       )
 
       if (!response.ok) throw new Error("Errore nel caricamento dati")

@@ -39,7 +39,7 @@ const Home = function () {
   }
 
   return (
-    <Container className="d-flex flex-column align-items-center mt-5">
+    <Container className="d-flex flex-column align-items-center mt-5 py-2">
       <img
         src="src\assets\immagine titolo.png"
         alt="Il Meteo di Sabatino"
