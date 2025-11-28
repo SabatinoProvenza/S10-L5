@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { Container, Form, Button, Card, Spinner } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
+import { useNavigate } from "react-router-dom"
 
 const Home = function () {
   const [city, setCity] = useState("")
   const [weather, setWeather] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const navigate = useNavigate()
 
   const API_KEY = "67cfa920cfe881dc2f918e1f92b76645"
 
@@ -74,7 +76,12 @@ const Home = function () {
             <h2>{Math.round(weather.main.temp)}°C</h2>
             <p>Umidità: {weather.main.humidity}%</p>
             <p>Vento: {weather.wind.speed} km/h</p>
-            <button className="btn btn-primary">Vai ai dettagli</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => navigate(`/forecast/${weather.name}`)}
+            >
+              Vedi altri giorni
+            </button>
           </Card.Body>
         </Card>
       )}
