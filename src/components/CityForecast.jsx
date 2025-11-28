@@ -30,7 +30,7 @@ const CityForecast = () => {
       setForecast(daily)
       setLoading(false)
     } catch (err) {
-      setError(err)
+      setError(err.message)
       setLoading(false)
     }
   }
@@ -82,7 +82,14 @@ const CityForecast = () => {
                 <strong>{Math.round(day.main.temp)}°C</strong>
 
                 <div className="d-flex justify-content-center mt-2">
-                  <button className="btn btn-primary">Vai ai dettagli</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() =>
+                      navigate(`/details/${params.city}/${day.dt_txt}`)
+                    }
+                  >
+                    Vai ai dettagli
+                  </button>
                 </div>
               </Card>
             </Col>
